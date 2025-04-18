@@ -1,0 +1,42 @@
+replicaCount: 1
+
+image:
+  repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/auth-service/auth-service
+  tag: 113b36a6d97613f834d61c07b930184ab09d309b
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 4001
+
+serviceAccount:
+  create: false
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+authentication:
+  env:
+    - name: MONGO_URI
+      valueFrom:
+        secretKeyRef:
+          name: authentication-secrets
+          key: MONGO_URI
+    - name: AUTH_PORT
+      value: 4001
+    - name: AUTH_API
+      value: "http://lms-micro-auth-service.lms-micro.svc.cluster.local:4001"
+    - name: LEARNER_API
+      value: "http://lms-micro-learner-service.lms-micro.svc.cluster.local:4002"
+    - name: COURSE_API
+      value: "http://lms-micro-course-service.lms-micro.svc.cluster.local:4003"
+    - name: PAYMENT_API
+      value: "http://lms-micro-payment-service.lms-micro.svc.cluster.local:4004"
+    - name: JWT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: authentication-secrets
+          key: JWT_SECRET

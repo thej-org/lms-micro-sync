@@ -1,0 +1,70 @@
+replicaCount: 1
+
+image:
+  repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/frontend-service/frontend-service
+  tag: bd5d8319356432034b04f7e3efd0d5d1381a18ee
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 5173
+
+serviceAccount:
+  create: false
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+frontend:
+  env:
+    - name: AUTH_API
+      value: "http://lms-micro-auth-service.lms-micro.svc.cluster.local:4001"
+    - name: LEARNER_API
+      value: "http://lms-micro-learner-service.lms-micro.svc.cluster.local:4002"
+    - name: COURSE_API
+      value: "http://lms-micro-course-service.lms-micro.svc.cluster.local:4003"
+    - name: PAYMENT_API
+      value: "http://lms-micro-payment-service.lms-micro.svc.cluster.local:4004"
+    - name: JWT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: JWT_SECRET
+    - name: MONGO_URI
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: MONGO_URI
+    - name: VITE_FIREBASE_API_KEY
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: VITE_FIREBASE_API_KEY
+    - name: VITE_FIREBASE_AUTH_DOMAIN
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: VITE_FIREBASE_AUTH_DOMAIN
+    - name: VITE_FIREBASE_PROJECT_ID
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: VITE_FIREBASE_PROJECT_ID
+    - name: VITE_FIREBASE_STORAGE_BUCKET
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: VITE_FIREBASE_STORAGE_BUCKET
+    - name: VITE_FIREBASE_MESSAGING_SENDER_ID
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: VITE_FIREBASE_MESSAGING_SENDER_ID
+    - name: VITE_FIREBASE_APP_ID
+      valueFrom:
+        secretKeyRef:
+          name: frontend-secrets
+          key: VITE_FIREBASE_APP_ID

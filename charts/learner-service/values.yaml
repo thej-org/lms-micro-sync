@@ -1,0 +1,42 @@
+replicaCount: 1
+
+image:
+  repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/learner-service/learner-service
+  tag: 835687ff53014e16fc64004ffc168ef7335dff7e
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 4002
+
+serviceAccount:
+  create: false
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+learner:
+  env:
+    - name: LEARNER_PORT
+      value: 4002
+    - name: MONGO_URI
+      valueFrom:
+        secretKeyRef:
+          name: learner-secrets
+          key: MONGO_URI
+    - name: AUTH_API
+      value: "http://lms-micro-auth-service.lms-micro.svc.cluster.local:4001"
+    - name: LEARNER_API
+      value: "http://lms-micro-learner-service.lms-micro.svc.cluster.local:4002"
+    - name: COURSE_API
+      value: "http://lms-micro-course-service.lms-micro.svc.cluster.local:4003"
+    - name: PAYMENT_API
+      value: "http://lms-micro-payment-service.lms-micro.svc.cluster.local:4004"
+    - name: JWT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: learner-secrets
+          key: JWT_SECRET

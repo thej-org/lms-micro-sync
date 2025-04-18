@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/gateway-service/gateway-service
+  tag: b67674c5b48b186a66b9d26254f7d077937890a1
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 4000
+
+serviceAccount:
+  create: false
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+gateway:
+  env:
+    - name: AUTH_API
+      value: "http://lms-micro-auth-service:4001"
+    - name: API_GATEWAY_PORT
+      value: 4000
+    - name: LEARNER_API
+      value: "http://lms-micro-learner-service:4002"
+    - name: COURSE_API
+      value: "http://lms-micro-course-service:4003"
+    - name: PAYMENT_API
+      value: "http://lms-micro-payment-service:4004"
+    - name: JWT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: gateway-secrets
+          key: JWT_SECRET

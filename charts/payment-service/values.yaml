@@ -1,0 +1,42 @@
+replicaCount: 1
+
+image:
+  repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/payment-service/payment-service
+  tag: 6116766190f4adb6a5454df7ecf7ea464138617f
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 4004
+
+serviceAccount:
+  create: false
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+payment:
+  env:
+    - name: PAYMENT_PORT
+      value: 4004
+    - name: MONGO_URI
+      valueFrom:
+        secretKeyRef:
+          name: payment-secrets
+          key: MONGO_URI
+    - name: AUTH_API
+      value: "http://lms-micro-auth-service.lms-micro.svc.cluster.local:4001"
+    - name: LEARNER_API
+      value: "http://lms-micro-learner-service.lms-micro.svc.cluster.local:4002"
+    - name: COURSE_API
+      value: "http://lms-micro-course-service.lms-micro.svc.cluster.local:4003"
+    - name: PAYMENT_API
+      value: "http://lms-micro-payment-service.lms-micro.svc.cluster.local:4004"
+    - name: JWT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: payment-secrets
+          key: JWT_SECRET
