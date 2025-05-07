@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/payment-service/payment-service
-  tag: aca0fd422c83cc3436dcd454508e8e6f4492ffc4
+  tag: 25ff960803b77c55b6ae320c45e68e7b56a40c1e
   pullPolicy: Always
 
 service:
