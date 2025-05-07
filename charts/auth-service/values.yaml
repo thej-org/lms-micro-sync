@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/auth-service/auth-service
-  tag: edcc477ef2cae001bcef1554bac5a8233ed73b4c
+  tag: 93c65d120ffad94aee9796e8cd0228abb2980bf3
   pullPolicy: Always
 
 service:
