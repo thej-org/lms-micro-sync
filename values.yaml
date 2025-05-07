@@ -5,9 +5,9 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
   tls:
     - hosts:
-        - "34.87.154.114.nip.io"
+        - "lms-micro-app-227cdc86.nip.io"
   hosts:
-    - host: "34.87.154.114.nip.io"
+    - host: "lms-micro-app-227cdc86.nip.io"
       paths:
         - path: /
           pathType: Prefix
