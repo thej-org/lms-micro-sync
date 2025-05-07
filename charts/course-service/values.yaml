@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/course-service/course-service
-  tag: c922cb2a3754e8c689809a63dc2d4a687e9b3add
+  tag: bffe56f0673deb9637ef307ee1ff2a14eef375c0
   pullPolicy: Always
 
 service:
