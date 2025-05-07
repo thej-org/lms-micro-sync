@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/auth-service/auth-service
-  tag: 113b36a6d97613f834d61c07b930184ab09d309b
+  tag: 648905f59edc346b19ded470ad19cdb992f0fe44
   pullPolicy: Always
 
 service:
