@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/course-service/course-service
-  tag: 048e254e6499e443708390ec95da792702c32a1d
+  tag: 08e3a127398577212b64baf0a48bb0c9453b2e0c
   pullPolicy: Always
 
 service:
