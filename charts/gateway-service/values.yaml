@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/gateway-service/gateway-service
-  tag: b67674c5b48b186a66b9d26254f7d077937890a1
+  tag: 812e5755a38b48646902346ddc0a5b21b3cc894d
   pullPolicy: Always
 
 service:
