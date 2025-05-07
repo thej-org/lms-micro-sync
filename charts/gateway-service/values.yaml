@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/gateway-service/gateway-service
-  tag: 812e5755a38b48646902346ddc0a5b21b3cc894d
+  tag: a9494b2ee068c3e935b9650c89f438cf03682f47
   pullPolicy: Always
 
 service:
