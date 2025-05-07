@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/learner-service/learner-service
-  tag: 048e254e6499e443708390ec95da792702c32a1d
+  tag: f355ecc868fe8950924f1ff050d28575ef545f62
   pullPolicy: Always
 
 service:
