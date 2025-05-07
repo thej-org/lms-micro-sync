@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/frontend-service/frontend-service
-  tag: 9107391cd2e6e2a2ad3dc0f9e2824c665ea0ccf7
+  tag: a7b1db1461e367c5e0c706dec004ece51c38b6fa
   pullPolicy: Always
 
 service:
