@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/learner-service/learner-service
-  tag: f355ecc868fe8950924f1ff050d28575ef545f62
+  tag: d6a31644130a14264f56442b9e9e1ce53ac9e253
   pullPolicy: Always
 
 service:
