@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/payment-service/payment-service
+  repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/payment-service/payment-service
   tag: aca0fd422c83cc3436dcd454508e8e6f4492ffc4
   pullPolicy: Always
 

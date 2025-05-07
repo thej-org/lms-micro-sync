@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: asia-southeast1-docker.pkg.dev/composite-bruin-453908-e7/course-service/course-service
+  repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/course-service/course-service
   tag: 08e3a127398577212b64baf0a48bb0c9453b2e0c
   pullPolicy: Always
 
