@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: asia-southeast1-docker.pkg.dev/operating-tiger-459015-h7/frontend-service/frontend-service
-  tag: f8e6bc3e7fef2b879802382684acebaa38d9823f
+  tag: 4eaecae93fbcf192427108d894a0a89503e6e1e1
   pullPolicy: Always
 
 service:
